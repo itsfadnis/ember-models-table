@@ -157,9 +157,9 @@ export default Component.extend({
    *
    * @type number
    * @name ModelsTable#pageSize
-   * @default 10
+   * @default 25
    */
-  pageSize: 10,
+  pageSize: 25,
 
   /**
    * @type {number}
@@ -758,10 +758,10 @@ export default Component.extend({
    * Used to change size of <code>visibleContent</code>
    *
    * @type {number[]}
-   * @default [10, 25, 50]
+   * @default [25, 50, 100]
    * @name ModelsTable#pageSizeValues
    */
-  pageSizeValues: A([10, 25, 50]),
+  pageSizeValues: A([25, 50, 100]),
 
   /**
    * Show first page if for some reasons there is no content for current page, but table data exists
