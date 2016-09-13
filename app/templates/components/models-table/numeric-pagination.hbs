@@ -1,10 +1,10 @@
-<div class="btn-toolbar pull-right" role="toolbar">
+<div class="btn-toolbar" role="toolbar">
   <div class="btn-group" role="group">
     {{#each visiblePageNumbers as |page|}}
       {{#if page.isLink}}
-        <button type="button" class="{{if page.isActive "active"}} {{classes.buttonDefault}}" {{action "gotoCustomPage" page.label}}>{{page.label}}</button>
+        <button type="button" class="{{if page.isActive "active btn-secondary" "btn-normal"}}" {{action "gotoCustomPage" page.label}}>{{page.label}}</button>
       {{else}}
-        <button disabled="disabled" type="button" class="{{classes.buttonDefault}}" {{action "gotoCustomPage" page.label}}>{{page.label}}</button>
+        <button disabled="disabled" type="button" class="btn-normal" {{action "gotoCustomPage" page.label}}>{{page.label}}</button>
       {{/if}}
     {{/each}}
   </div>
