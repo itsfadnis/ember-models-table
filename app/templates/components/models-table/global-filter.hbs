@@ -1,7 +1,21 @@
 <div class="{{classes.globalFilterWrapper}}">
-  <div class="form-inline globalSearch">
-    <div class="form-group">
-      <label>{{messages.searchLabel}}</label> {{input type="text" value=filterString class="form-control filterString" focus-out="changeFilterString" enter="" placeholder=messages.searchPlaceholder}}
-    </div>
+  <div class="col-sm-offset-3 col-sm-7">
+    {{input class="form-control filterString search"
+      value=filterString
+      focus-out="changeFilterString"
+      enter=""
+      placeholder=messages.searchPlaceholder
+    }}
+    {{#link-to "participants.new" class="links"}}
+      <i class="fa fa-user-plus fa-fw"></i>
+      Invite
+    {{/link-to}}
+    <a href="/admin/users/participants/imports/new" class="links">
+      <i class="fa fa-cloud-upload"></i>
+      Upload
+    </a>
+    <span class="summary">
+      {{summary}}
+    </span>
   </div>
 </div>
