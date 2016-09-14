@@ -18,12 +18,24 @@ export default ModelsTable.extend({
   isLoading: false,
 
   /**
+  * True if data is being loaded from table operations(sort, filter, paginate),
+  * or from outside the table
+  *
+  * @type {boolean}
+  * @name showLoader
+  */
+  showLoader: computed('isLoading', 'showLoading', function() {
+    return get(this, 'isLoading') || get(this, 'showLoading');
+  }),
+
+  /**
    * The property on meta to load the pages count from.
    *
    * @type {string}
    * @name metaPagesCountProperty
    */
   metaPagesCountProperty: 'pagesCount',
+
   /**
    * The property on meta to load the total item count from.
    *

@@ -15,7 +15,12 @@
       Upload
     </a>
     <span class="summary">
-      {{summary}}
+      {{#if showLoader}}
+        <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+        Loading...
+      {{else}}
+        {{summary}}
+      {{/if}}
     </span>
   </div>
 </div>
