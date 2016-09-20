@@ -183,6 +183,13 @@ export default ModelsTable.extend({
         delete query[filterTitle];
       }
     });
+    
+    // Add hack to track applied query params globally
+    for (let key in query) {
+      if (query[key]) {
+        window.MODELS_TABLE[key.camelize()] = query[key];
+      }
+    }
 
     set(this, 'isLoading', true);
     store.query(modelName, query).then((newData) => {
