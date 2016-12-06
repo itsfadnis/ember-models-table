@@ -187,7 +187,7 @@ export default ModelsTable.extend({
     // Add hack to track applied query params globally
     for (let key in query) {
       if (query[key]) {
-        window.MODELS_TABLE[key.camelize()] = query[key];
+        window.MODELS_TABLE[Ember.String.camelize(key)] = query[key];
       }
     }
 
