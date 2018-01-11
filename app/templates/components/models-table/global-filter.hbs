@@ -1,19 +1,5 @@
 <div class="{{classes.globalFilterWrapper}}">
-  <div class="col-sm-offset-3 col-sm-7">
-    {{input class="form-control filterString search"
-      value=filterString
-      focus-out="changeFilterString"
-      enter=""
-      placeholder=messages.searchPlaceholder
-    }}
-    {{#link-to "new" class="links"}}
-      <i class="fa fa-user-plus fa-fw"></i>
-      Invite
-    {{/link-to}}
-    <a href="/admin/users/participants/imports/new" class="links">
-      <i class="fa fa-cloud-upload"></i>
-      Upload
-    </a>
+  <div class="col-sm-6">
     <span class="summary">
       {{#if showLoader}}
         <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
@@ -22,5 +8,24 @@
         {{summary}}
       {{/if}}
     </span>
+  </div>
+
+  <div class="col-sm-6">
+    {{#link-to "new" class="links"}}
+      Invite
+      <i class="fa fa-cloud-upload fa-btt-links"></i>
+    {{/link-to}}
+
+    <a href="/admin/users/participants/imports/new" class="links">
+      Upload
+      <i class="fa fa-user-plus fa-fw fa-btt-links"></i>
+    </a>
+
+    {{input class="form-control filterString search"
+      value=filterString
+      focus-out="changeFilterString"
+      enter=""
+      placeholder=messages.searchPlaceholder
+    }}
   </div>
 </div>
