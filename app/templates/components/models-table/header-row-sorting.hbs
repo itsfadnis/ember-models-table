@@ -8,7 +8,11 @@
         </th>
       {{else}}
         <th class="{{classes.theadCell}} {{classes.theadCellNoSorting}}">
-          {{column.title}}
+          {{#if column.headerTemplate}}
+            {{partial column.headerTemplate}}
+          {{else}}
+            {{column.title}}
+          {{/if}}
         </th>
       {{/if}}
     {{/if}}

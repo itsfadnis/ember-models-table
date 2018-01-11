@@ -5,7 +5,7 @@ import layout from '../templates/components/models-table';
 var { get, set, computed, typeOf, run } = Ember;
 
 export default ModelsTable.extend({
-
+  bulkTaggingService: Ember.inject.service('bulk-tagging'),
   layout,
 
   /**
@@ -137,6 +137,7 @@ export default ModelsTable.extend({
     var currentPageNumber = get(this, 'currentPageNumber');
     var pageSize = get(this, 'pageSize');
     var columns = get(this, 'processedColumns');
+    var service = this.get('bulkTaggingService');
 
     var sortProperties = get(this, 'sortProperties');
     var filterString = get(this, 'filterString');
@@ -183,7 +184,7 @@ export default ModelsTable.extend({
         delete query[filterTitle];
       }
     });
-    
+
     // Add hack to track applied query params globally
     for (let key in query) {
       if (query[key]) {
@@ -193,6 +194,11 @@ export default ModelsTable.extend({
 
     set(this, 'isLoading', true);
     store.query(modelName, query).then((newData) => {
+      if (!service.get('selectedAllUsers')) {
+        service.deselectAllUsers();
+        service.set('selectableUsersForPage', newData.toArray());
+      }
+
       set(this, 'filteredContent', newData);
       set(this, 'isLoading', false);
     });
