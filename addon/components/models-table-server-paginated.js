@@ -6,6 +6,7 @@ var { get, set, computed, typeOf, run } = Ember;
 
 export default ModelsTable.extend({
   bulkTaggingService: Ember.inject.service('bulk-tagging'),
+  mixpanel: Ember.inject.service('mixpanel'),
   layout,
 
   /**
@@ -199,6 +200,7 @@ export default ModelsTable.extend({
         service.set('selectableUsersForPage', newData.toArray());
       }
 
+      this.get('mixpanel').trackEvent('PRM:participants:load', Object.assign(window.loggerDetails, window.MODELS_TABLE));
       set(this, 'filteredContent', newData);
       set(this, 'isLoading', false);
     });
