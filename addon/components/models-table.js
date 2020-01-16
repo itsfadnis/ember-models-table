@@ -703,6 +703,12 @@ export default Component.extend({
       firstIndex,
       lastIndex
     } = getProperties(this, 'arrangedContentLength', 'firstIndex', 'lastIndex');
+    /**
+     * Send the values as 0 if the no users are fetched
+     */
+    if(arrangedContentLength === 0 ){
+      return fmt(get(this, 'messages.tableSummary'), 0, 0, 0);
+    }
     return fmt(get(this, 'messages.tableSummary'), firstIndex, lastIndex, arrangedContentLength);
   }),
 
