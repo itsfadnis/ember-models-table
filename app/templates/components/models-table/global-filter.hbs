@@ -3,7 +3,7 @@
     <span class="summary">
       {{#if showLoader}}
         <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-        Loading...
+        {{messages.LoadingText}}
       {{else}}
         {{summary}}
       {{/if}}
@@ -12,7 +12,7 @@
 
   <div class="col-sm-6">
     {{#link-to "new" class="links"}}
-      Invite
+      {{messages.inviteText}}
       <i class="fa fa-cloud-upload fa-btt-links"></i>
     {{/link-to}}
 
