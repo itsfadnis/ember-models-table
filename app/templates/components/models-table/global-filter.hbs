@@ -3,7 +3,7 @@
     <span class="summary">
       {{#if showLoader}}
         <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-        Loading...
+        {{messages.loadingText}}
       {{else}}
         {{summary}}
       {{/if}}
@@ -12,12 +12,12 @@
 
   <div class="col-sm-6">
     {{#link-to "new" class="links"}}
-      Invite
+      {{messages.inviteText}}
       <i class="fa fa-cloud-upload fa-btt-links"></i>
     {{/link-to}}
 
     <a href="/admin/users/participants/imports/new" class="links">
-      Upload
+      {{messages.uploadText}}
       <i class="fa fa-user-plus fa-fw fa-btt-links"></i>
     </a>
 
